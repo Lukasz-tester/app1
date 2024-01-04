@@ -1,5 +1,5 @@
 import Link from "next/link";
-import PaddingContainer from "../layout/padding-container";
+import PaddingContainer from "../layout/padding_container";
 
 const Navigation = () => {
   return (

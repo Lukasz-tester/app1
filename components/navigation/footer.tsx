@@ -1,5 +1,5 @@
 import React from "react";
-import PaddingContainer from "../layout/padding-container";
+import PaddingContainer from "../layout/padding_container";
 import siteConfig from "@/config/site";
 import SocialLink from "../elements/social_links";
 

@@ -1,4 +1,4 @@
-import { Category, Post } from "./types/database";
+import { Category, Post } from "./types/collection";
 
 export const DUMMY_POSTS: Post[] = [
   {
