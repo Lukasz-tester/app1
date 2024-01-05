@@ -1,21 +1,35 @@
-import { Post } from "@/types/collection"
+import { Post } from "@/types/collection";
 import Image from "next/image";
 import Link from "next/link";
 import PostContent from "./post_content";
 
 interface PostProps {
-    post: Post;
+  post: Post;
+  layout?: "vertical" | "horizontal";
 }
 
-const PostCard = ( { post }: PostProps) => {
+const PostCard = ({ post, layout = "horizontal" }: PostProps) => {
   return (
-    <Link className="grid grid-cols-2 gap-10 items-center" href={`/post/${post.slug}`}>
-        {/* Post image */}
-        <Image className="rounded-md w-full object-cover object-center max-h-{300}" src={post.image} alt={post.title} height={300} width={600}/>
-        {/* Post content */}
-        <PostContent post={post} />
+    <Link
+      className={` ${
+        layout === "horizontal"
+          ? "grid grid-cols-2 items-center gap-10"
+          : "space-y-10"
+      }`}
+      href={`/post/${post.slug}`}
+    >
+      {/* Post image */}
+      <Image
+        className="max-h-[250px] w-full rounded-md object-cover object-center"
+        src={post.image}
+        alt={post.title}
+        height={300}
+        width={600}
+      />
+      {/* Post content */}
+      <PostContent post={post} />
     </Link>
-  )
-}
+  );
+};
 
 export default PostCard;

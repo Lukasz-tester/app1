@@ -1,3 +1,4 @@
+import { getReadingTime, getRelativeDate } from "@/lib/helpers";
 import { Post } from "@/types/collection";
 import { ArrowRight } from "lucide-react";
 
@@ -19,19 +20,19 @@ const PostContent = ({ post }: PostContentProps) => {
         >
           {post.category.title}
         </div>
-        <div className="w-2 h-2 rounded-full bg-neutral-200"/>
+        <div className="w-2 h-2 rounded-full bg-neutral-300"/>
         <div>{`${post.author.first_name} ${post.author.last_name}`}</div>
-        <div className="w-2 h-2 rounded-full bg-neutral-200"/>
-        <div>1 min read</div>
-        <div className="w-2 h-2 rounded-full bg-neutral-200"/>
-        <div>1 week ago</div>
+        <div className="w-2 h-2 rounded-full bg-neutral-300"/>
+        <div>{getReadingTime(post.body)}</div>
+        <div className="w-2 h-2 rounded-full bg-neutral-300"/>
+        <div>{getRelativeDate(post.date_created)}</div>
       </div>
       {/* Title */}
       <h2 className="font-medium text-3xl">{post.title} </h2>
       {/* Description */}
       <p className="text-neutral-600 leading-snug">{post.description}</p>
       {/* Read More */}
-      <div className="flex items-center gap-2 pt-2">Read More <ArrowRight size={14}/></div>
+      <div className="flex items-center gap-2 pt-3">Read More <ArrowRight size={14}/></div>
     </div>
   );
 };
